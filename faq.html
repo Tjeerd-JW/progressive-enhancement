@@ -1,24 +1,141 @@
 <!doctype html>
 <html lang="nl">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width">
-		<title>Veelgestelde vragen / Progressive Enhancement / FDND</title>
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-		<link href="assets/styles.css" rel="stylesheet">
-		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
 
-			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Veelgestelde vragen / Progressive Enhancement / FDND</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+		rel="stylesheet">
+	<link href="assets/styles.css" rel="stylesheet">
+	<style>
+		/* Schrijf hier gewoon je CSS voor dit component */
 
-			/* Hint: Denk aan de states van het component; deze kan open en dicht zijn */
-		</style>
-	</head>
-	<body>
-		<h1>Veelgestelde vragen</h1>
+		/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
 
+		/* Hint: Denk aan de states van het component; deze kan open en dicht zijn */
+		@supports selector(::marker) {
+			details {
+				width: fit-content;
+				border-radius: .5rem;
+				border: solid 1px black;
+				margin: 1rem 0;
 
-		<!-- Content (waar nog wat HTML omheen moet 😄):
+				summary {
+					width: fit-content;
+					padding: 1rem;
+					font-size: 18px;
+					list-style-type: '+';
+					transition: .2s ease-in-out list-style-type;
+					user-select: none;
+					/* &:before {
+						content: '+';
+						transition: .2s ease-in-out;
+					} */
+					&::marker{
+						font-weight: bold;
+						font-size: 25px;
+					}
+
+					&:focus-visible {
+						border: solid 1px black;
+						border-radius: .5rem;
+
+					}
+				}
+
+			}
+
+			details[open] {
+				border: none;
+
+				summary {
+					border-radius: .5rem .5rem 0 0;
+					list-style-type: '×';
+					/* 
+					&:before {
+						rotate: 45deg;
+					} */
+				}
+
+				p {
+					padding: .5rem 1rem 1rem 1rem;
+					border-radius: 0 .5rem .5rem .5rem;
+					margin: 0;
+				}
+
+				&:first-of-type {
+
+					summary,
+					p {
+
+						background-color: #9b69f3;
+					}
+				}
+
+				&:nth-of-type(2) {
+
+					summary,
+					p {
+
+						background-color: #5bdfb7;
+					}
+
+				}
+
+				&:nth-of-type(3) {
+
+					summary,
+					p {
+
+						background-color: #fefb7b;
+					}
+				}
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Veelgestelde vragen</h1>
+	<details>
+		<summary>
+			Wat is frontend development?
+		</summary>
+		<p>
+			Een frontend developer ontwerpt en bouwt websites in HTML, CSS en JavaScript. Deze frontend talen leer je
+			bij ons, je hebt dus geen voorkennis nodig.
+		</p>
+	</details>
+	<details>
+		<summary>
+			Moet ik al kunnen coderen?
+		</summary>
+		<p>
+			Nee, je hebt helemaal geen voorkennis nodig om te beginnen aan deze opleiding, we kunnen je alles leren! Als
+			je wel al voorkennis hebt, is dat alleen maar goed, dan kunnen we je helpen je skills te verbeteren en te
+			verdiepen in de stof.
+
+		</p>
+	</details>
+	<details>
+		<summary>
+			Wat is een Associate Degree?
+		</summary>
+		<p>
+			Een Associate degree-opleiding is een tweejarige hbo-opleiding op niveau 5. Een Ad slaat een brug tussen het
+			mbo-4 (niveau 4) en een hbo-bachelor (niveau 6). Met een Associate degree kies je voor een praktijkgerichte
+			hbo-opleiding; je wordt opgeleid voor een beroep dat aansluit bij de praktijk. In dit geval word je opgeleid
+			tot ‘frontend designer/developer' of kortweg ‘frontender’. Frontenders ontwerpen en maken interactieve,
+			toegankelijke toepassingen voor het web. Frontenders werken binnen het gebied van software development,
+			interactieontwerp en digitaal visueel ontwerp.
+			Na afronding van deze tweejarige hbo-opleiding, krijg je een wettelijk erkend hbo-diploma met de graad
+			Associate degree. Met dit Ad-diploma kun je direct aan de slag in het werkveld of doorstromen naar de
+			bacheloropleiding Communication and Multimedia Design (CMD).
+		</p>
+	</details>
+
+	<!-- Content (waar nog wat HTML omheen moet 😄):
 		Wat is frontend development?
 		Een frontend developer ontwerpt en bouwt websites in HTML, CSS en JavaScript. Deze frontend talen leer je bij ons, je hebt dus geen voorkennis nodig.
 
@@ -31,12 +148,13 @@
 		-->
 
 
-		<!-- Hint: Dit stukje HTML geeft het misschien al weg :) -->
-		<details open>
-			<summary>Demo video</summary>
-			<video src="assets/faq.mp4" width="765" height="769" controls muted autoplay loop>
-				<a href="assets/faq.mp4">assets/faq.mp4</a>
-			</video>
-		</details>
-	</body>
+	<!-- Hint: Dit stukje HTML geeft het misschien al weg :) -->
+	<details open>
+		<summary>Demo video</summary>
+		<video src="assets/faq.mp4" width="765" height="769" controls muted autoplay loop>
+			<a href="assets/faq.mp4">assets/faq.mp4</a>
+		</video>
+	</details>
+</body>
+
 </html>
