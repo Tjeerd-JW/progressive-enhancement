@@ -15,7 +15,7 @@
 
 		/* Hint: Hoe ver ga je qua styling? Vraag jezelf dit altijd af */
 
-		input {
+		input.slidebox {
 			cursor: inherit;
 			appearance: none;
 			margin: 0;
@@ -26,6 +26,8 @@
 			border: 1px solid transparent;
 			transition: .2s;
 			padding: 4px;
+
+
 
 			&::after {
 				content: "";
@@ -59,7 +61,9 @@
 <body>
 	<h1>Switch control</h1>
 
-	<input type="checkbox" switch>
+	<input class="slidebox" type="checkbox" switch>
+
+<input type="checkbox" switch>
 	<!-- Hint: Safari heeft hiervoor iets bedacht, maar is dat al een standaard?
 		     Wat gebeurt er in browsers die dat nog niet ondersteunen? -->
 
