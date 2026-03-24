@@ -129,6 +129,12 @@
 		const closeButton = document.querySelector(".close")
 		menuButton.addEventListener("click", overlayAdd)
 		closeButton.addEventListener("click", overlayRemove)
+		overlay.addEventListener("click", closeMenu)
+		function closeMenu() {
+			window.location.hash = "close"
+			overlay.classList.remove('overlay-display')
+
+		}
 		function overlayAdd() {
 			overlay.classList.add('overlay-display')
 		}
