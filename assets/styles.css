@@ -6,7 +6,10 @@ Deze CSS hoef je niet aan te passen; dit zijn algemene stijlen voor elke pagina.
 Gebruik het <style> element in het bestand van het component, waar ook wat hints staan.
 
 */
-
+*{
+	margin: 0;
+	padding: 0;
+}
 
 
 body {
