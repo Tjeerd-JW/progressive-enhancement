@@ -15,11 +15,13 @@
 
 		/* Hint: Hoe ver ga je qua styling? Vraag jezelf dit altijd af */
 
-		input.slidebox {
+		input {
 			cursor: inherit;
 			appearance: none;
+			-webkit-appearance: none;
 			margin: 0;
 			width: 8em;
+			height: 4em;
 			aspect-ratio: 2/1;
 			background-color: gray;
 			border-radius: 5rem;
@@ -45,7 +47,7 @@
 			}
 
 			&:checked::after {
-				translate: 100%;
+				transform: translateX(100%);
 				border: 2px solid transparent;
 				content: 'aan';
 				align-items: center;
@@ -63,7 +65,7 @@
 
 	<input class="slidebox" type="checkbox" switch>
 
-<input type="checkbox" switch>
+	<input type="checkbox" switch>
 	<!-- Hint: Safari heeft hiervoor iets bedacht, maar is dat al een standaard?
 		     Wat gebeurt er in browsers die dat nog niet ondersteunen? -->
 
