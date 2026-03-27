@@ -12,7 +12,8 @@
 		/* Schrijf hier gewoon je CSS voor dit component */
 
 		/* Hint: Denk niet te ingewikkeld */
-		label {
+
+		.label-preview {
 			width: 500px;
 			height: 500px;
 			border: solid 2px black;
@@ -51,15 +52,11 @@
 
 		const input = document.querySelector('input[type="file"]')
 		const label = document.querySelector('label')
+		// preview werkt alleen als javascript is aangezet
+		label.classList.add('label-preview')
 		// luisteren wanneer er een file word geupload
 		input.addEventListener('change', (event) => {
-			// const img = input.files[0];
-			// const reader = new FileReader();
-			// reader.onload = (e) => {
-			// 	console.log(e.target.result)
-			// 	label.style.backgroundImage = `url(${e.target.result})`
-			// }
-			// reader.readAsDataURL(img);
+
 			handleImg(input.files)
 		})
 
@@ -70,28 +67,27 @@
 			// afbeelding uitlezen
 			const reader = new FileReader();
 			reader.onload = (e) => {
-				console.log(e.target.result)
 				label.style.backgroundImage = `url(${e.target.result})`
 			}
 			reader.readAsDataURL(img);
 		}
 
 		// standaard dingen voorkomen wanneer je drag en drop doet
-		label.addEventListener('dragenter', dragenter)
-		label.addEventListener('dragover', dragover)
-		label.addEventListener('drop', drop)
+		label.addEventListener('dragenter', dragenterHandler)
+		label.addEventListener('dragover', dragoverHandler)
+		label.addEventListener('drop', dropHandler)
 
-		function dragenter(event) {
+		function dragenterHandler(event) {
 			event.stopPropagation();
 			event.preventDefault();
 		}
 
-		function dragover(event) {
+		function dragoverHandler(event) {
 			event.stopPropagation();
 			event.preventDefault();
 		}
 
-		function drop(event) {
+		function dropHandler(event) {
 			event.stopPropagation();
 			event.preventDefault();
 
