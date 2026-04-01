@@ -1,29 +1,97 @@
 <!doctype html>
 <html lang="nl">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width">
-		<title>Favorieten picker / Progressive Enhancement / FDND</title>
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-		<link href="assets/styles.css" rel="stylesheet">
-		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
 
-			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Favorieten picker / Progressive Enhancement / FDND</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+		rel="stylesheet">
+	<link href="assets/styles.css" rel="stylesheet">
+	<style>
+		/* Schrijf hier gewoon je CSS voor dit component */
 
-			/* Hint: Kijk eens naar field-sizing
+		/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
+
+		/* Hint: Kijk eens naar field-sizing
 			   https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing */
-		</style>
-	</head>
 
-	<body>
-		<h1>Favorieten picker</h1>
+		form {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			width: clamp(320px, 100%, 500px);
+		}
 
-		<form>
+		#kleur {
+			grid-column: 1/ -1;
+			grid-row: 1;
 
-			<!-- Hint: hoe kun je aan een invoerelement een lijst meegeven? -->
+			input {
+				width: clamp(300px, 100%, 600px);
+				height: 150px;
+				border: 0;
+				border-radius: 16px;
+			}
+		}
 
-			<!-- Een lijstje met docenten
+		.docent-lijst {
+			grid-column: 2;
+			grid-row: 1;
+			align-content: center;
+
+			&::after {
+				content: "";
+			}
+
+			input {
+				padding: .5rem;
+				border: 0;
+				border-radius: 10px;
+				font-size: 16px;
+				font-weight: bold;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Favorieten picker</h1>
+
+	<form>
+		<label id="kleur">
+			<input value="#A675F5" list="kleur-list" id="kleur" type="color">
+		</label>
+
+		<datalist id="kleur-list">
+			<option value="#A675F5"> #A675F5</option>
+			<option value="#050542">#050542</option>
+			<option value="#66E5BF">#66E5BF</option>
+			<option value="#FFFC86">#FFFC86</option>
+
+
+
+		</datalist>
+
+		<label class="docent-lijst">
+			<input value="Koop Reynders" list="name-list" id="lijst" name="lijst" type="text"
+				autocomplete="additional-name">
+		</label>
+		<datalist id="name-list">
+			<option value="Charley Muhren">Charley Muhren</option>
+			<option value="Cyd Stumpel">Cyd Stumpel</option>
+			<option value="Dion Pieters">Dion Pieters</option>
+			<option value="Dorien Drees">Dorien Drees</option>
+			<option value="Joost Faber">Joost Faber</option>
+			<option value="Justus Sturkenboom">Justus Sturkenboom</option>
+			<option value="Koop Reynders">Koop Reynders</option>
+			<option value="Krijn Hoetmer">Krijn Hoetmer</option>
+			<option value="Sanne 't Hooft">Sanne 't Hooft</option>
+			<option value="Suus ten Voorde">Suus ten Voorde</option>
+		</datalist>
+
+		<!-- Hint: hoe kun je aan een invoerelement een lijst meegeven? -->
+
+		<!-- Een lijstje met docenten
 			Charley Muhren
 			Cyd Stumpel
 			Dion Pieters
@@ -36,20 +104,21 @@
 			Suus ten Voorde
 			-->
 
-			<!-- De kleurcodes van FDND:
+		<!-- De kleurcodes van FDND:
 			#A675F5
 			#050542
 			#66E5BF
 			#FFFC86
 			-->
 
-		</form>
+	</form>
 
-		<details open>
-			<summary>Demo video</summary>
-			<video src="assets/pickers.mp4" width="749" height="417" controls muted autoplay loop>
-				<a href="assets/pickers.mp4">assets/pickers.mp4</a>
-			</video>
-		</details>
-	</body>
+	<details open>
+		<summary>Demo video</summary>
+		<video src="assets/pickers.mp4" width="749" height="417" controls muted autoplay loop>
+			<a href="assets/pickers.mp4">assets/pickers.mp4</a>
+		</video>
+	</details>
+</body>
+
 </html>

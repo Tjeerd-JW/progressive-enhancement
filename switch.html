@@ -2,79 +2,85 @@
 <html lang="nl">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Switch control / Progressive Enhancement / FDND</title>
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-		rel="stylesheet">
-	<link href="assets/styles.css" rel="stylesheet">
-	<style>
-		/* Schrijf hier gewoon je CSS voor dit component */
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Switch control / Progressive Enhancement / FDND</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link href="assets/styles.css" rel="stylesheet">
+    <style>
+        /* Schrijf hier gewoon je CSS voor dit component */
 
-		/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
+        /* Hint: Dit component kun je volledig met HTML en CSS bouwen */
 
-		/* Hint: Hoe ver ga je qua styling? Vraag jezelf dit altijd af */
+        /* Hint: Hoe ver ga je qua styling? Vraag jezelf dit altijd af */
 
-	  label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            width: 200px;
-            height: 100px;
-            background: grey;
-            display: block;
-            border-radius: 100px;
-            position: relative;
+        @supports (appearance: none) {
+
+            input {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                width: 200px;
+                height: 100px;
+                background: grey;
+                display: block;
+                border-radius: 100px;
+                position: relative;
+                appearance: none;
+            }
+
+            input::after {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                content: "";
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                width: 90px;
+                height: 90px;
+                background: #fff;
+                border-radius: 90px;
+                transition: 0.3s;
+            }
+
+            input:checked {
+                background: var(--green);
+            }
+
+            input:checked::after {
+                left: calc(100%);
+                transform: translateX(-105%);
+                content: "aan";
+
+            }
         }
- 
-        label::after {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            content: "";
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            width: 90px;
-            height: 90px;
-            background: #fff;
-            border-radius: 90px;
-            transition: 0.3s;
-        }
- 
-        input:checked + label {
-            background: var(--green);
-        }
- 
-        input:checked + label:after {
-            left: calc(100%);
-            transform: translateX(-100%);
-        }
- 
-        label:active:after {
+
+        /* label:active:after {
             width: 130px;
-            content: "Aan";
-			transform: translateX(100%);
-        }
-	</style>
+            content: "aan";
+            transform: translateX(100%);
+        } */
+    </style>
 </head>
 
 <body>
-	<h1>Switch control</h1>
-	<input type="checkbox" switch id="switch">
-	<label for="switch"> </label>
-		<!-- <input type="checkbox" switch> -->
+    <h1>Switch control</h1>
+    <input type="checkbox" switch id="switch">
+    <label for="switch"> </label>
+    <!-- <input type="checkbox" switch> -->
 
-		<!-- Hint: Safari heeft hiervoor iets bedacht, maar is dat al een standaard?
+    <!-- Hint: Safari heeft hiervoor iets bedacht, maar is dat al een standaard?
 		     Wat gebeurt er in browsers die dat nog niet ondersteunen? -->
 
-		<details open>
-			<summary>Demo video</summary>
-			<video src="assets/switch.mp4" width="119" height="67" controls muted autoplay loop>
-				<a href="assets/switch.mp4">assets/switch.mp4</a>
-			</video>
-		</details>
+    <details open>
+        <summary>Demo video</summary>
+        <video src="assets/switch.mp4" width="119" height="67" controls muted autoplay loop>
+            <a href="assets/switch.mp4">assets/switch.mp4</a>
+        </video>
+    </details>
 </body>
 
 </html>
